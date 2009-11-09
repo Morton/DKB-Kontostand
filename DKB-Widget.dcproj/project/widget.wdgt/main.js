@@ -56,142 +56,6 @@ function sync()
     // globalPreferenceValue = widget.preferenceForKey(null, "your-key");
 }
 
-function getJSession() {
-    // XMLHttpRequest setup code
-    var xmlRequest = new XMLHttpRequest();
-    xmlRequest.onload = function () {
-        if (xmlRequest.status == 200) {
-            // Parse and interpret results
-            // XML results found in xmlRequest.responseXML
-            // Text results found in xmlRequest.responseText
-            var reg = /content='0; URL=(.*?)'/;
-            var matches = reg.exec(xmlRequest.responseText);
-            var url = RegExp.$1;
-            RegExp.lastIndex = 0;
-            console.log("got url");
-            getLoginPage(url);
-        }
-        else {
-            alert("Error fetching data: HTTP status " + xmlRequest.status);
-        }
-    };	// The function to call when the feed is loaded; currently calls the XMLHttpRequest load snippet
-    xmlRequest.open("GET", "https://banking.dkb.de/dkb/-");
-    xmlRequest.setRequestHeader("Cache-Control", "no-cache");
-    xmlRequest.send();
-}
-function getLoginPage(url) {
-// XMLHttpRequest setup code
-    var xmlRequest = new XMLHttpRequest();
-    xmlRequest.onload = function () {
-        if (xmlRequest.status == 200) {
-            // get form url
-            var reg = /form action="(.*?)"/;
-            var matches = reg.exec(xmlRequest.responseText);
-            //alert("URL: " + RegExp.$1);
-            //var url = RegExp.$1;
-            
-            // get token
-            reg = /name="token" value="(.*?)"/;
-            matches = reg.exec(xmlRequest.responseText);
-            //alert("Token: " + RegExp.$1);
-            var token = RegExp.$1;
-            console.log("got token");
-            getAccountData(url, token, document.getElementById("login").value, document.getElementById("pin").value);
-        }
-        else {
-            alert("Error fetching data: HTTP status " + xmlRequest.status);
-        }
-    };	// The function to call when the feed is loaded; currently calls the XMLHttpRequest load snippet
-    xmlRequest.open("GET", url);
-    xmlRequest.setRequestHeader("Cache-Control", "no-cache");
-    xmlRequest.send();
-}
-function getAccountData(url, token, user, passwd) {
-// XMLHttpRequest setup code
-    var xmlRequest = new XMLHttpRequest();
-    xmlRequest.onload = function () {
-        if (xmlRequest.status == 200) {
-            // get form url
-//            alert(xmlRequest.responseText);
-            var site = xmlRequest.responseText;
-            doLogout(jsession);
-            
-            var failReg = /Die eingegebene PIN muss genau f&uuml;nf Stellen lang sein/;
-            var failReg2 = /Der eingegebene Anmeldename und\/oder die PIN ist nicht zul&auml;ssig./;
-            if (site.match(failReg) || site.match(failReg2)) {
-                console.log("login failed!");
-            } else {
-                console.log("logged in");
-                parseSite(site);
-            }
-        }
-        else {
-            alert("Error fetching data: HTTP status " + xmlRequest.status);
-        }
-    };	// The function to call when the feed is loaded; currently calls the XMLHttpRequest load snippet
-    var params = "%24%24event_login.x=0&%24%24event_login.y=0&token=" + token + "&j_username=" + user + "&j_password=" + passwd + "&%24part=Welcome.login&%24%24%24event_login=login";
-    xmlRequest.open("POST", "https://banking.dkb.de/dkb/-");
-    xmlRequest.setRequestHeader("Cache-Control", "no-cache");
-    xmlRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlRequest.setRequestHeader("Content-length", params.length);
-    
-    // extract jsession
-    reg = /jsessionid=(.*?)\?/;
-    matches = reg.exec(url);
-    var jsession = RegExp.$1;
-    console.log("jsession: " + jsession);
-    
-    xmlRequest.setRequestHeader("Cookie", "JSESSIONID=" + jsession);
-    xmlRequest.setRequestHeader("Connection", "close");
-    xmlRequest.send(params);
-}
-function doLogout(jsession) {
-// XMLHttpRequest setup code
-    var xmlRequest = new XMLHttpRequest();
-    xmlRequest.onload = function () {
-        if (xmlRequest.status == 200) {
-            // get form url
-//            alert(xmlRequest.responseText);
-            var goodReg = /.*?content='0; URL=https:\/\/banking\.dkb\.de\/dkb\/\-\?\$part=Welcome\.logout&\$javascript=disabled'.*/;
-            if (!xmlRequest.responseText.match(goodReg)) {
-                console.log("logout failed!");
-            } else {
-                console.log("logged out");
-                hideIndicator();
-                showBack(null);
-            }
-        }
-        else {
-            alert("Error fetching data: HTTP status " + xmlRequest.status);
-        }
-    };	// The function to call when the feed is loaded; currently calls the XMLHttpRequest load snippet
-    var params = '$$event_logout.x=56&$$event_logout.y=18&$part=DkbTransactionBanking.login-status';
-    xmlRequest.open("POST", "https://banking.dkb.de/dkb/-");
-    xmlRequest.setRequestHeader("Cache-Control", "no-cache");
-    xmlRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlRequest.setRequestHeader("Content-length", params.length);
-    xmlRequest.setRequestHeader("Cookie", "JSESSIONID=" + jsession);
-    xmlRequest.setRequestHeader("Connection", "close");
-    xmlRequest.send(params);
-}
-function parseSite(code) {
-    code = code.replace(/\n/g, '');
-    var parseReg = /<tr class="(?:even)?(?:odd)?-row">.*?<td.*?accountNo">\s*(.*?)\s*<\/td>.*?<td.*?name">\s*(.*?)<br\/>.*?<td.*?saldo">.*?<span.*?>(.*?) (.*?)<\/span>.*?<\/tr>/gm;
-    var data = new Array();
-    while ((match = parseReg.exec(code)) != null) {
-        var line = new Array(RegExp.$1, RegExp.$2, RegExp.$3, RegExp.$4);
-        data.push(line);
-        
-        alert(line[0] + " " + line[1] + " " + line[2] + " " + line[3]);
-    }
-}
-
-function getData(event) {
-    showIndicator();
-
-    getJSession();
-}
-
 function showIndicator() {
     document.getElementById("indicator").style.visibility = 'visible';
 }
@@ -199,6 +63,103 @@ function hideIndicator() {
     document.getElementById("indicator").style.visibility = 'hidden';
 }
 
+
+// This object implements the dataSource methods for the list.
+var accountName = {
+	
+	// Sample data for the content of the list. 
+	// Your application may also fetch this data remotely via XMLHttpRequest.
+	_rowData: [],
+    
+    setRows: function(arr) {
+        this._rowData = arr;
+        document.getElementById('list').object.reloadData();
+    },
+	
+	// The List calls this method to find out how many rows should be in the list.
+	numberOfRows: function() {
+		return this._rowData.length;
+	},
+	
+	// The List calls this method once for every row.
+	prepareRow: function(rowElement, rowIndex, templateElements) {
+		// templateElements contains references to all elements that have an id in the template row.
+		// Ex: set the value of an element with id="label".
+		if (templateElements.rowLabel) {
+			templateElements.rowLabel.innerText = this._rowData[rowIndex];
+		}
+
+		// Assign a click event handler for the row.
+		rowElement.onclick = function(event) {
+			// Do something interesting
+			alert("Row "+rowIndex);
+		};
+	}
+};
+// This object implements the dataSource methods for the list.
+var accountValue = {
+	
+	// Sample data for the content of the list. 
+	// Your application may also fetch this data remotely via XMLHttpRequest.
+	_rowData: [],
+    
+    setRows: function(arr) {
+        this._rowData = arr;
+        document.getElementById('list1').object.reloadData();
+
+    },
+	
+	// The List calls this method to find out how many rows should be in the list.
+	numberOfRows: function() {
+		return this._rowData.length;
+	},
+	
+	// The List calls this method once for every row.
+	prepareRow: function(rowElement, rowIndex, templateElements) {
+		// templateElements contains references to all elements that have an id in the template row.
+		// Ex: set the value of an element with id="label".
+		if (templateElements.rowLabel1) {
+			templateElements.rowLabel1.innerText = this._rowData[rowIndex];
+		} else {
+            return;
+        }
+
+		// Assign a click event handler for the row.
+		rowElement.onclick = function(event) {
+			// Do something interesting
+			alert("Row "+rowIndex);
+		};
+	}
+};
+
+
+function showError(text) {
+    document.getElementById('error').innerText = text;
+}
+function onTransactionCompleted(data) {
+    var names = new Array();
+    var values = new Array();
+    for (var i = 0; i < data.length; i++) {
+        names.push(data[i][1]);
+        alert(data[i][1]);
+        values.push(data[i][2]);
+        alert(data[i][2]);
+    }
+    
+    accountName.setRows(names);
+    accountValue.setRows(values);
+
+    hideIndicator();
+    showBack(null);
+}
+function getData(event) {
+    if (document.getElementById("pin").value != '') {
+        showError('');
+        
+        new DKBEngine(document.getElementById("login").value, document.getElementById("pin").value, onTransactionCompleted, showError);
+        document.getElementById("pin").value = '';
+    }
+}
 
 //
 // Function: showBack(event)

@@ -9,6 +9,7 @@
     <script type="text/javascript" src="Parts/parts.js" charset="utf-8"></script>
     <script type="text/javascript" src="localizedStrings.js" charset="utf-8"></script>
     <script type="text/javascript" src="main.js" charset="utf-8"></script>
+    <script type="text/javascript" src="dkb-engine.js" charset="utf-8"></script>
     <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleScrollbar.js" charset="utf-8"></script>
     <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleScrollArea.js" charset="utf-8"></script>
 </head>
@@ -20,10 +21,11 @@
         <input id="login" type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield">
         <input id="pin" type="password" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield">
         <div id="pinText" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis" apple-style="part-width-dependent: true;"></div>
-        <div id="button" apple-part="com.apple.Dashcode.part.roundedtextbutton" class="apple-no-children" apple-style="image-theme: 1; image-shape: 3; image-button-type: 0; image-opacity: 1.00; image-top-color: 1,1,1,1; image-bottom-color: 0.6154,0.6154,0.6154,1; image-radius: 5,5,5,5; image-border: 1; image-border-color: 0.5294,0.5294,0.5294,1; image-border-width: 1; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 0;"></div>
+        <div id="submit" apple-part="com.apple.Dashcode.part.roundedtextbutton" class="apple-no-children" apple-style="image-theme: 1; image-shape: 3; image-button-type: 0; image-opacity: 1.00; image-top-color: 1,1,1,1; image-bottom-color: 0.6154,0.6154,0.6154,1; image-radius: 5,5,5,5; image-border: 1; image-border-color: 0.5294,0.5294,0.5294,1; image-border-width: 1; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 0;"></div>
         <div id="indicator" apple-part="com.apple.Dashcode.part.imageLayout" apple-group="image">
             <img id="DC_img" class="apple-hidden invalid" apple-group="image" src="http://clmu.alexanderstreet.com/ui/common/ajax_indicator.gif">
         </div>
+        <div id="error" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis"></div>
     </div>
     <div id="back">
         <img id="backImg" src="Parts/Images/back.png" alt="" apple-locked="true" apple-part="com.apple.Dashcode.part.backimage" apple-style=" image-radius: 12,12,12,12; image-border: 1; image-border-color: 0.1500,0.1500,0.1500; image-border-width: 3; shadow-include-shadow: 1; shadow-blur: 9.00; shadow-offset: -1.00,-6.00; shadow-color: 0.0000,0.0000,0.0000,0.3333;">

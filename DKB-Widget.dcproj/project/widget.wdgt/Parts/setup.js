@@ -5,8 +5,8 @@
  code generator otherwise the changes will be lost.
  */
 var dashcodePartSpecs = {
-    "button": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "getData", "rightImageWidth": 5, "text": "Show" },
     "done": { "creationFunction": "CreateGlassButton", "onclick": "showFront", "text": "Done" },
+    "error": { "view": "DC.Text" },
     "heading": { "text": "Hello, World!", "view": "DC.Text" },
     "indicator": { "view": "DC.ImageLayout" },
     "list": { "allowsEmptySelection": true, "dataArray": ["Item 1", "Item 2", "Item 3"], "dataSourceName": "accountName", "labelElementId": "None", "listStyle": "List.DESKTOP_LIST", "sampleRows": 7, "useDataSource": true, "view": "DC.List" },
@@ -14,6 +14,8 @@ var dashcodePartSpecs = {
     "loginText": { "text": "Kontonummer/Loginname:", "view": "DC.Text" },
     "pinText": { "text": "PIN:", "view": "DC.Text" },
     "rowLabel": { "text": "Item", "view": "DC.Text" },
-    "rowLabel1": { "text": "Item", "view": "DC.Text" }
+    "rowLabel1": { "text": "Item", "view": "DC.Text" },
+    "submit": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "getData", "rightImageWidth": 5, "text": "Show" }
 };
+
 

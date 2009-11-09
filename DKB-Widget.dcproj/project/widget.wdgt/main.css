@@ -15,7 +15,7 @@ body {
     left: 0px;
     right: 0px;
     width: auto;
-    bottom: 0px;
+    bottom: 37px;
     height: auto;
 }
 
@@ -117,7 +117,7 @@ body {
     color: white;
 }
 
-#button {
+#submit {
     font-family: HelveticaNeue-Bold;
     font-size: 12px;
     text-align: center;
@@ -258,4 +258,27 @@ body.DC_windowInactive .listRowTemplate1_template.selected {
     max-height: 100%;
     width: auto;
     height: auto;
+}
+
+#error {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 0px;
+    -khtml-user-select: text;
+    color: rgb(206, 0, 0);
+    font-family: 'Lucida Grande';
+    text-shadow: rgb(128, 128, 128) 0px 0px 2px;
+    font-size: 10px;
+    min-height: 25px;
+    top: 199px;
+    left: 22px;
+    right: 80px;
+    width: auto;
+    bottom: 41px;
+    height: auto;
+}
+
+.selected #error {
+    color: white;
 }

@@ -4,29 +4,49 @@
 <dict>
 	<key>Breakpoints</key>
 	<dict>
-		<key>widget.wdgt/main.js:100</key>
-		<string>-getLoginPage</string>
-		<key>widget.wdgt/main.js:115</key>
-		<string>-getAccountData</string>
+		<key>widget.wdgt/dkb-engine.js:104</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:123</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:16</key>
+		<string>-httpPost</string>
+		<key>widget.wdgt/dkb-engine.js:2</key>
+		<string>-httpGet</string>
+		<key>widget.wdgt/dkb-engine.js:4</key>
+		<string>-httpGet</string>
+		<key>widget.wdgt/dkb-engine.js:43</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:46</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:55</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:56</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:58</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:74</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/dkb-engine.js:80</key>
+		<string>-DKBEngine</string>
+		<key>widget.wdgt/main.js:120</key>
+		<string>-prepareRow</string>
 		<key>widget.wdgt/main.js:124</key>
-		<string>-getAccountData</string>
-		<key>widget.wdgt/main.js:154</key>
-		<string>-doLogout</string>
-		<key>widget.wdgt/main.js:179</key>
-		<string>-parseSite</string>
-		<key>widget.wdgt/main.js:190</key>
+		<string>prepareRow</string>
+		<key>widget.wdgt/main.js:157</key>
 		<string>-getData</string>
-		<key>widget.wdgt/main.js:72</key>
-		<string>-getJSession</string>
-		<key>widget.wdgt/main.js:73</key>
-		<string>-getJSession</string>
-		<key>widget.wdgt/main.js:96</key>
-		<string>-getLoginPage</string>
-		<key>widget.wdgt/main.js:99</key>
-		<string>-getLoginPage</string>
+		<key>widget.wdgt/main.js:162</key>
+		<string>-getData</string>
+		<key>widget.wdgt/main.js:58</key>
+		<string>-</string>
+		<key>widget.wdgt/main.js:67</key>
+		<string>-</string>
+		<key>widget.wdgt/main.js:88</key>
+		<string>-prepareRow</string>
+		<key>widget.wdgt/main.js:89</key>
+		<string>-prepareRow</string>
 	</dict>
 	<key>CYLastWindowPosition</key>
-	<string>{782, 401}</string>
+	<string>{780, 396}</string>
 	<key>ContentSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -37,8 +57,8 @@
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {1036, 215}}</string>
-			<string>{{0, 225}, {1036, 448}}</string>
+			<string>{{0, 0}, {1036, 265}}</string>
+			<string>{{0, 275}, {1036, 398}}</string>
 		</array>
 	</dict>
 	<key>ContentViewType</key>
@@ -69,7 +89,7 @@
 		</array>
 	</dict>
 	<key>MainWindowFrame</key>
-	<string>0 63 1280 715 0 0 1280 778 </string>
+	<string>1 61 1280 715 0 0 1280 778 </string>
 	<key>NavigatorSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -93,13 +113,15 @@
 			</array>
 			<array>
 				<integer>0</integer>
-				<integer>0</integer>
+				<integer>1</integer>
 			</array>
 		</array>
 		<key>Objects view last selections</key>
 		<array/>
 		<key>Opened Steps</key>
-		<array/>
+		<array>
+			<integer>2</integer>
+		</array>
 		<key>Visible StackLayout Views</key>
 		<array>
 			<string>front</string>
