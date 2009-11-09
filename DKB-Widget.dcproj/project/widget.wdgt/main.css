@@ -8,32 +8,8 @@ body {
     margin: 0px;
 }
 
-#frontImg {
-    display: block;
-    margin-top: 0px;
-    -khtml-margin-top-collapse: separate;
-    -khtml-margin-bottom-collapse: separate;
-    position: relative;
-    margin-left: 0px;
-    margin-right: 56px;
-    min-height: 142px;
-    width: auto;
-    height: auto;
-}
-
 #back {
     display: none;
-}
-
-#backImg {
-    position: absolute;
-    display: block;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: auto;
-    height: auto;
 }
 
 #done {
@@ -58,9 +34,10 @@ body {
     margin-top: 0px;
     font-size: 14pt;
     width: 120px;
-    color: rgb(0, 0, 0);
     right: 72px;
     margin-left: auto;
+    text-shadow: rgb(255, 255, 255) 0px 0px 1px;
+    color: rgb(248, 249, 248);
 }
 
 #login {
@@ -104,11 +81,11 @@ body {
     position: absolute;
     bottom: auto;
     margin-top: 0px;
-    top: 31px;
     left: 26px;
     margin-left: 0px;
-    width: auto;
+    top: 30px;
     right: 26px;
+    width: auto;
 }
 
 .listRowTemplate_template {
@@ -133,7 +110,7 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .listRowTemplate_template.selected {
@@ -145,7 +122,7 @@ body:not(.DC_windowInactive) .listRowTemplate_template.selected .rowLabel_templa
 }
 
 body.DC_windowInactive .listRowTemplate_template.selected {
-    background-color: rgb(212, 212, 212);
+    /*background-color: rgb(212, 212, 212);*/
 }
 
 .rowLabel1_template {
@@ -156,13 +133,13 @@ body.DC_windowInactive .listRowTemplate_template.selected {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    color: rgb(255, 255, 255);
     font-family: Helvetica;
     text-shadow: none;
     left: 9px;
     right: 11px;
     width: auto;
     text-align: right;
+    color: rgb(0, 0, 0);
 }
 
 #error {
@@ -243,5 +220,27 @@ body.DC_windowInactive .listRowTemplate_template.selected {
     width: 44px;
     right: 192px;
     margin-left: auto;
-    color: rgb(0, 0, 255);
+    text-shadow: rgb(84, 99, 248) 0px 0px 2px;
+    color: rgb(115, 131, 242);
+}
+
+#backImg1 {
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 0px;
+    width: 264px;
+    height: 160px;
+}
+
+#frontImg1 {
+    display: block;
+    margin-top: 0px;
+    -khtml-margin-top-collapse: separate;
+    -khtml-margin-bottom-collapse: separate;
+    position: relative;
+    margin-left: 0px;
+    width: 264px;
+    margin-right: 56px;
+    height: 160px;
 }
