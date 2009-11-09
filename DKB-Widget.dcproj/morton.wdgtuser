@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Breakpoints</key>
+	<dict>
+		<key>widget.wdgt/main.js:100</key>
+		<string>-getLoginPage</string>
+		<key>widget.wdgt/main.js:115</key>
+		<string>-getAccountData</string>
+		<key>widget.wdgt/main.js:124</key>
+		<string>-getAccountData</string>
+		<key>widget.wdgt/main.js:154</key>
+		<string>-doLogout</string>
+		<key>widget.wdgt/main.js:179</key>
+		<string>-parseSite</string>
+		<key>widget.wdgt/main.js:190</key>
+		<string>-getData</string>
+		<key>widget.wdgt/main.js:72</key>
+		<string>-getJSession</string>
+		<key>widget.wdgt/main.js:73</key>
+		<string>-getJSession</string>
+		<key>widget.wdgt/main.js:96</key>
+		<string>-getLoginPage</string>
+		<key>widget.wdgt/main.js:99</key>
+		<string>-getLoginPage</string>
+	</dict>
+	<key>CYLastWindowPosition</key>
+	<string>{782, 401}</string>
+	<key>ContentSplitViewGeometry</key>
+	<dict>
+		<key>ContentSplitViewConfig</key>
+		<integer>8</integer>
+		<key>SplitViewConfig</key>
+		<integer>3</integer>
+		<key>_indexOfCollapsedView</key>
+		<integer>0</integer>
+		<key>sizes</key>
+		<array>
+			<string>{{0, 0}, {1036, 215}}</string>
+			<string>{{0, 225}, {1036, 448}}</string>
+		</array>
+	</dict>
+	<key>ContentViewType</key>
+	<integer>0</integer>
+	<key>DeploymentOptions</key>
+	<dict>
+		<key>Destination</key>
+		<string>localhost.default</string>
+		<key>Path</key>
+		<string>DKB-Widget</string>
+		<key>WidgetDeployName</key>
+		<string>DKB-Überblick</string>
+		<key>enableSimulation</key>
+		<true/>
+		<key>simulatedHost</key>
+		<string>dai208.local</string>
+	</dict>
+	<key>Design time language</key>
+	<string>en.lproj</string>
+	<key>MainSplitViewGeometry</key>
+	<dict>
+		<key>_indexOfCollapsedView</key>
+		<integer>0</integer>
+		<key>sizes</key>
+		<array>
+			<string>{{0, 0}, {243, 694}}</string>
+			<string>{{244, 0}, {1037, 694}}</string>
+		</array>
+	</dict>
+	<key>MainWindowFrame</key>
+	<string>0 63 1280 715 0 0 1280 778 </string>
+	<key>NavigatorSplitViewGeometry</key>
+	<dict>
+		<key>ContentSplitViewConfig</key>
+		<integer>9</integer>
+		<key>SplitViewConfig</key>
+		<integer>3</integer>
+		<key>_indexOfCollapsedView</key>
+		<integer>0</integer>
+		<key>sizes</key>
+		<array>
+			<string>{{0, 0}, {245, 319}}</string>
+			<string>{{0, 329}, {245, 344}}</string>
+		</array>
+	</dict>
+	<key>Widget</key>
+	<dict>
+		<key>Objects view expanded items</key>
+		<array>
+			<array>
+				<integer>0</integer>
+			</array>
+			<array>
+				<integer>0</integer>
+				<integer>0</integer>
+			</array>
+		</array>
+		<key>Objects view last selections</key>
+		<array/>
+		<key>Opened Steps</key>
+		<array/>
+		<key>Visible StackLayout Views</key>
+		<array>
+			<string>front</string>
+		</array>
+	</dict>
+</dict>
+</plist>
