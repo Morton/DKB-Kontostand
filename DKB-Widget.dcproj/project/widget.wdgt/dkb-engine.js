@@ -71,7 +71,7 @@ function DKBEngine(user, pwd, finalCallback, errorCallback) {
 
     this.doLogin = function () {
         console.log('3: doLogin');
-        var params = "%24%24event_login.x=0&%24%24event_login.y=0&token=" + this.token + "&j_username=" + this.username + "&j_password=" + this.password + "&%24part=Welcome.login&%24%24%24event_login=login";
+        var params = "%24%24event_login.x=0&%24%24event_login.y=0&token=" + this.token + "&j_username=" + escape(this.username) + "&j_password=" + escape(this.password) + "&%24part=Welcome.login&%24%24%24event_login=login";
         httpPost("https://banking.dkb.de/dkb/-",  params, "JSESSIONID=" + this.jsession, this, this.parseSite);
     }
     this.parseSite = function (self, code) {
@@ -90,8 +90,6 @@ function DKBEngine(user, pwd, finalCallback, errorCallback) {
             while ((match = parseReg.exec(code)) != null) {
                 var line = new Array(RegExp.$1, RegExp.$2, RegExp.$3, RegExp.$4);
                 self.data.push(line);
-
-                alert(line[0] + " " + line[1] + " " + line[2] + " " + line[3]);
             }
             
             self.parsed = true;

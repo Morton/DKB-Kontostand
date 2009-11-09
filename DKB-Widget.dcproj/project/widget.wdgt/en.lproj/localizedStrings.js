@@ -5,8 +5,11 @@
  code generator otherwise the changes will be lost.
  */
 var localizedStrings = {
+    "dkb": "DKB",
     "Done": "Done",
-    "Hello, World!": "Please enter Login:"
+    "Hello, World!": "Kontostand",
+    "kontostand": "Kontostand"
 };
+
 
 

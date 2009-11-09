@@ -4,9 +4,9 @@
 <dict>
 	<key>Breakpoints</key>
 	<dict>
-		<key>widget.wdgt/dkb-engine.js:104</key>
+		<key>widget.wdgt/dkb-engine.js:102</key>
 		<string>-DKBEngine</string>
-		<key>widget.wdgt/dkb-engine.js:123</key>
+		<key>widget.wdgt/dkb-engine.js:121</key>
 		<string>-DKBEngine</string>
 		<key>widget.wdgt/dkb-engine.js:16</key>
 		<string>-httpPost</string>
@@ -28,22 +28,20 @@
 		<string>-DKBEngine</string>
 		<key>widget.wdgt/dkb-engine.js:80</key>
 		<string>-DKBEngine</string>
-		<key>widget.wdgt/main.js:120</key>
-		<string>-prepareRow</string>
-		<key>widget.wdgt/main.js:124</key>
-		<string>prepareRow</string>
-		<key>widget.wdgt/main.js:157</key>
+		<key>widget.wdgt/main.js:103</key>
+		<string>-onMayEnter</string>
+		<key>widget.wdgt/main.js:105</key>
+		<string>-clearInput</string>
+		<key>widget.wdgt/main.js:121</key>
 		<string>-getData</string>
-		<key>widget.wdgt/main.js:162</key>
+		<key>widget.wdgt/main.js:133</key>
 		<string>-getData</string>
+		<key>widget.wdgt/main.js:44</key>
+		<string>-</string>
 		<key>widget.wdgt/main.js:58</key>
 		<string>-</string>
-		<key>widget.wdgt/main.js:67</key>
+		<key>widget.wdgt/main.js:98</key>
 		<string>-</string>
-		<key>widget.wdgt/main.js:88</key>
-		<string>-prepareRow</string>
-		<key>widget.wdgt/main.js:89</key>
-		<string>-prepareRow</string>
 	</dict>
 	<key>CYLastWindowPosition</key>
 	<string>{780, 396}</string>
@@ -57,20 +55,24 @@
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {1036, 265}}</string>
-			<string>{{0, 275}, {1036, 398}}</string>
+			<string>{{0, 0}, {1036, 199}}</string>
+			<string>{{0, 209}, {1036, 464}}</string>
 		</array>
 	</dict>
 	<key>ContentViewType</key>
-	<integer>0</integer>
+	<integer>5</integer>
 	<key>DeploymentOptions</key>
 	<dict>
 		<key>Destination</key>
 		<string>localhost.default</string>
 		<key>Path</key>
 		<string>DKB-Widget</string>
+		<key>Save</key>
+		<true/>
+		<key>SavePath</key>
+		<string>/Users/morton/Documents</string>
 		<key>WidgetDeployName</key>
-		<string>DKB-Überblick</string>
+		<string>DKBKontostand</string>
 		<key>enableSimulation</key>
 		<true/>
 		<key>simulatedHost</key>
@@ -89,19 +91,19 @@
 		</array>
 	</dict>
 	<key>MainWindowFrame</key>
-	<string>1 61 1280 715 0 0 1280 778 </string>
+	<string>0 63 1280 715 0 0 1280 778 </string>
 	<key>NavigatorSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
-		<integer>9</integer>
+		<integer>5</integer>
 		<key>SplitViewConfig</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>_indexOfCollapsedView</key>
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {245, 319}}</string>
-			<string>{{0, 329}, {245, 344}}</string>
+			<string>{{0, 0}, {246, 319}}</string>
+			<string>{{0, 329}, {246, 344}}</string>
 		</array>
 	</dict>
 	<key>Widget</key>
@@ -110,16 +112,36 @@
 		<array>
 			<array>
 				<integer>0</integer>
+				<integer>1</integer>
+				<integer>3</integer>
+			</array>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>3</integer>
+				<integer>0</integer>
+			</array>
+			<array>
+				<integer>0</integer>
 			</array>
 			<array>
 				<integer>0</integer>
 				<integer>1</integer>
 			</array>
+			<array>
+				<integer>0</integer>
+				<integer>0</integer>
+			</array>
 		</array>
 		<key>Objects view last selections</key>
-		<array/>
+		<array>
+			<array>
+				<integer>5</integer>
+			</array>
+		</array>
 		<key>Opened Steps</key>
 		<array>
+			<integer>0</integer>
 			<integer>2</integer>
 		</array>
 		<key>Visible StackLayout Views</key>

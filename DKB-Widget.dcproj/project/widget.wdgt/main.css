@@ -9,13 +9,15 @@ body {
 }
 
 #frontImg {
-    position: absolute;
     display: block;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    margin-top: 0px;
+    -khtml-margin-top-collapse: separate;
+    -khtml-margin-bottom-collapse: separate;
+    position: relative;
+    margin-left: 0px;
+    margin-right: 56px;
+    min-height: 142px;
     width: auto;
-    bottom: 37px;
     height: auto;
 }
 
@@ -29,50 +31,36 @@ body {
     top: 0px;
     left: 0px;
     right: 0px;
-    width: auto;
     bottom: 0px;
+    width: auto;
     height: auto;
 }
 
 #done {
     position: absolute;
-    right: 21px;
-    bottom: 21px;
     margin-left: auto;
     margin-top: auto;
+    width: 50px;
+    left: auto;
+    right: 21px;
+    top: auto;
+    bottom: 21px;
 }
 
 #heading {
     position: absolute;
-    color: black;
     font-family: HelveticaNeue-Bold;
-    font-size: 11pt;
     min-height: 18px;
-    top: 44px;
-    width: 146px;
-    right: 70px;
-    margin-left: auto;
-    left: 64px;
-    margin-right: auto;
-    bottom: 315px;
-    height: auto;
-}
-
-#loginText {
-    font-size: 13px;
-    font-family: 'Lucida Grande', Arial, sans-serif;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
+    height: 21px;
+    margin-bottom: 0px;
+    bottom: auto;
+    top: 26px;
     margin-top: 0px;
-    top: 87px;
-    left: 34px;
-    width: auto;
-    height: auto;
-}
-
-.selected #loginText {
-    color: white;
+    font-size: 14pt;
+    width: 120px;
+    color: rgb(0, 0, 0);
+    right: 72px;
+    margin-left: auto;
 }
 
 #login {
@@ -80,9 +68,13 @@ body {
     color: black;
     font-family: HelveticaNeue;
     font-size: 10pt;
-    width: 140px;
-    top: 103px;
-    left: 64px;
+    width: 132px;
+    text-align: center;
+    top: 65px;
+    right: 63px;
+    margin-left: auto;
+    left: 63px;
+    margin-right: auto;
 }
 
 #pin {
@@ -90,47 +82,17 @@ body {
     color: black;
     font-family: HelveticaNeue;
     font-size: 10pt;
-    left: 64px;
-    width: 140px;
-    top: 137px;
     -webkit-border-top-left-radius: 0px 0px;
     -webkit-border-top-right-radius: 0px 0px;
     -webkit-border-bottom-left-radius: 0px 0px;
     -webkit-border-bottom-right-radius: 0px 0px;
-}
-
-#pinText {
-    font-size: 13px;
-    font-family: 'Lucida Grande', Arial, sans-serif;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
-    margin-top: 0px;
-    left: 34px;
-    top: 142px;
-    width: auto;
-    bottom: 68px;
-    height: auto;
-}
-
-.selected #pinText {
-    color: white;
-}
-
-#submit {
-    font-family: HelveticaNeue-Bold;
-    font-size: 12px;
+    width: 73px;
+    top: 97px;
     text-align: center;
-    width: 60px;
-    cursor: default;
-    -khtml-user-select: none;
-    position: absolute;
-    right: auto;
-    margin-top: 0px;
-    left: 196px;
-    top: 191px;
-    bottom: 17px;
-    height: auto;
+    right: 122px;
+    margin-left: auto;
+    left: 63px;
+    margin-right: auto;
 }
 
 #list {
@@ -140,12 +102,13 @@ body {
     cursor: default;
     -khtml-user-select: none;
     position: absolute;
-    right: auto;
     bottom: auto;
     margin-top: 0px;
-    width: 151px;
-    left: 26px;
     top: 31px;
+    left: 26px;
+    margin-left: 0px;
+    width: auto;
+    right: 26px;
 }
 
 .listRowTemplate_template {
@@ -170,6 +133,7 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    color: rgb(255, 255, 255);
 }
 
 .listRowTemplate_template.selected {
@@ -184,101 +148,100 @@ body.DC_windowInactive .listRowTemplate_template.selected {
     background-color: rgb(212, 212, 212);
 }
 
-#list1 {
-    overflow: hidden;
-    display: none;
-    padding: 0px;
-    cursor: default;
-    -khtml-user-select: none;
-    position: absolute;
-    right: auto;
-    bottom: auto;
-    margin-top: 0px;
-    top: 31px;
-    width: 71px;
-    left: 177px;
-}
-
-.listRowTemplate1_template {
-    position: relative;
-    list-style-type: none;
-    height: 19px;
-    overflow: hidden;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(224, 224, 224);
-}
-
 .rowLabel1_template {
     position: absolute;
     top: 3px;
-    left: 10px;
-    right: 10px;
     height: 17px;
-    width: auto;
     font-size: 13px;
-    font-family: Helvetica, Arial, sans-serif;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-}
-
-.listRowTemplate1_template.selected {
-    background-color: rgb(56, 121, 217);
-}
-
-body:not(.DC_windowInactive) .listRowTemplate1_template.selected .rowLabel1_template {
-    color: white;
-}
-
-body.DC_windowInactive .listRowTemplate1_template.selected {
-    background-color: rgb(212, 212, 212);
-}
-
-#indicator {
-    width: 128px;
-    height: 128px;
-    position: absolute;
-    right: auto;
-    bottom: auto;
-    margin-top: 0px;
-    left: -37px;
-    top: 137px;
-    visibility: hidden;
-}
-
-#DC_img {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    top: 0px;
-    margin: auto;
-    max-width: 100%;
-    max-height: 100%;
+    color: rgb(255, 255, 255);
+    font-family: Helvetica;
+    text-shadow: none;
+    left: 9px;
+    right: 11px;
     width: auto;
-    height: auto;
+    text-align: right;
 }
 
 #error {
     text-overflow: ellipsis;
     overflow: hidden;
     position: absolute;
-    margin-top: 0px;
     -khtml-user-select: text;
     color: rgb(206, 0, 0);
     font-family: 'Lucida Grande';
-    text-shadow: rgb(128, 128, 128) 0px 0px 2px;
     font-size: 10px;
-    min-height: 25px;
-    top: 199px;
-    left: 22px;
-    right: 80px;
-    width: auto;
-    bottom: 41px;
-    height: auto;
+    text-shadow: rgb(128, 128, 128) 0px 0px 1px;
+    height: 12px;
+    min-height: 14px;
+    top: 123px;
+    right: 63px;
+    text-align: center;
+    margin-left: auto;
+    width: 138px;
+    left: 63px;
+    margin-right: auto;
 }
 
 .selected #error {
     color: white;
+}
+
+#activityIndicator {
+    opacity: 0.6;
+    position: absolute;
+    margin-top: 0px;
+    visibility: hidden;
+    width: 40px;
+    height: 40px;
+    top: 74px;
+    right: 112px;
+    margin-left: auto;
+    left: 112px;
+    margin-right: auto;
+}
+
+#front {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: auto;
+    min-height: 200px;
+    height: auto;
+}
+
+#submit {
+    font-family: HelveticaNeue-Bold;
+    font-size: 12px;
+    text-align: center;
+    cursor: default;
+    -khtml-user-select: none;
+    min-height: 20px;
+    -khtml-margin-top-collapse: collapse;
+    -khtml-margin-bottom-collapse: collapse;
+    position: absolute;
+    width: 50px;
+    height: 21px;
+    top: 99px;
+    right: 63px;
+    margin-left: auto;
+    left: 151px;
+    margin-right: auto;
+}
+
+#heading1 {
+    position: absolute;
+    font-family: HelveticaNeue-Bold;
+    min-height: 18px;
+    height: 21px;
+    margin-bottom: 0px;
+    bottom: auto;
+    top: 26px;
+    margin-top: 0px;
+    font-size: 14pt;
+    width: 44px;
+    right: 192px;
+    margin-left: auto;
+    color: rgb(0, 0, 255);
 }

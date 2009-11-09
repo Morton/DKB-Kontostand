@@ -11,6 +11,12 @@
 function load()
 {
     dashcode.setupParts();
+
+    storedLoginName = widget.preferenceForKey(widget.identifier + "-loginName");
+    if (storedLoginName != undefined) {
+        document.getElementById('login').value = storedLoginName;
+        docuemnt.getElementByid('pin').focus();
+    }
 }
 
 //
@@ -19,9 +25,10 @@ function load()
 //
 function remove()
 {
-    // Stop any timers to prevent CPU usage
-    // Remove any preferences as needed
-    // widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey("your-key"));
+    if (dkb != undefined) {
+        dkb.doLogout();
+        dkb = undefined;
+    }
 }
 
 //
@@ -30,42 +37,26 @@ function remove()
 //
 function hide()
 {
-    // Stop any timers to prevent CPU usage
+    remove();
 }
-
-//
-// Function: show()
-// Called when the widget has been shown
-//
-function show()
-{
-    // Restart any timers that were stopped on hide
-}
-
-//
-// Function: sync()
-// Called when the widget has been synchronized with .Mac
-//
-function sync()
-{
-    // Retrieve any preference values that you need to be synchronized here
-    // Use this for an instance key's value:
-    // instancePreferenceValue = widget.preferenceForKey(null, dashcode.createInstancePreferenceKey("your-key"));
-    //
-    // Or this for global key's value:
-    // globalPreferenceValue = widget.preferenceForKey(null, "your-key");
-}
+function show() {}
+function sync() {}
 
 function showIndicator() {
-    document.getElementById("indicator").style.visibility = 'visible';
+    document.getElementById("activityIndicator").style.visibility = 'visible';
+    document.getElementById("login").style.visibility = 'hidden';
+    document.getElementById("pin").style.visibility = 'hidden';
+    document.getElementById("submit").style.visibility = 'hidden';
 }
 function hideIndicator() {
-    document.getElementById("indicator").style.visibility = 'hidden';
+    document.getElementById("activityIndicator").style.visibility = 'hidden';
+    document.getElementById("login").style.visibility = 'visible';
+    document.getElementById("pin").style.visibility = 'visible';
+    document.getElementById("submit").style.visibility = 'visible';
 }
 
-
 // This object implements the dataSource methods for the list.
-var accountName = {
+var account = {
 	
 	// Sample data for the content of the list. 
 	// Your application may also fetch this data remotely via XMLHttpRequest.
@@ -74,38 +65,6 @@ var accountName = {
     setRows: function(arr) {
         this._rowData = arr;
         document.getElementById('list').object.reloadData();
-    },
-	
-	// The List calls this method to find out how many rows should be in the list.
-	numberOfRows: function() {
-		return this._rowData.length;
-	},
-	
-	// The List calls this method once for every row.
-	prepareRow: function(rowElement, rowIndex, templateElements) {
-		// templateElements contains references to all elements that have an id in the template row.
-		// Ex: set the value of an element with id="label".
-		if (templateElements.rowLabel) {
-			templateElements.rowLabel.innerText = this._rowData[rowIndex];
-		}
-
-		// Assign a click event handler for the row.
-		rowElement.onclick = function(event) {
-			// Do something interesting
-			alert("Row "+rowIndex);
-		};
-	}
-};
-// This object implements the dataSource methods for the list.
-var accountValue = {
-	
-	// Sample data for the content of the list. 
-	// Your application may also fetch this data remotely via XMLHttpRequest.
-	_rowData: [],
-    
-    setRows: function(arr) {
-        this._rowData = arr;
-        document.getElementById('list1').object.reloadData();
 
     },
 	
@@ -118,45 +77,57 @@ var accountValue = {
 	prepareRow: function(rowElement, rowIndex, templateElements) {
 		// templateElements contains references to all elements that have an id in the template row.
 		// Ex: set the value of an element with id="label".
-		if (templateElements.rowLabel1) {
-			templateElements.rowLabel1.innerText = this._rowData[rowIndex];
-		} else {
-            return;
+        
+        templateElements.rowLabel.innerText = this._rowData[rowIndex][1];
+        templateElements.rowLabel1.innerText = this._rowData[rowIndex][2];
+        if (this._rowData[rowIndex][3] == 'S') {
+            templateElements.rowLabel1.style.color = 'Red';
+            templateElements.rowLabel1.innerText = '-' + templateElements.rowLabel1.innerText;
+        } else {
+            templateElements.rowLabel1.style.color = 'White';
         }
-
-		// Assign a click event handler for the row.
-		rowElement.onclick = function(event) {
-			// Do something interesting
-			alert("Row "+rowIndex);
-		};
+        if (rowIndex + 1 == this._rowData.length) {
+            templateElements.rowLabel.style.fontWeight = 'Bold';
+            templateElements.rowLabel1.style.fontWeight = 'Bold';
+        } else {
+            templateElements.rowLabel.style.fontWeight = 'Normal';
+            templateElements.rowLabel1.style.fontWeight = 'Normal';
+        }
 	}
 };
 
-
+function onMayEnter(self) {
+    if (self.keyIdentifier == "Enter") {
+        getData(null);
+    }
+}
+function clearInput(self) {
+    self.currentTarget.value = '';
+}
 function showError(text) {
     document.getElementById('error').innerText = text;
+    hideIndicator();
 }
 function onTransactionCompleted(data) {
-    var names = new Array();
-    var values = new Array();
-    for (var i = 0; i < data.length; i++) {
-        names.push(data[i][1]);
-        alert(data[i][1]);
-        values.push(data[i][2]);
-        alert(data[i][2]);
-    }
-    
-    accountName.setRows(names);
-    accountValue.setRows(values);
+    dkb = undefined;
+    account.setRows(data);
 
-    hideIndicator();
     showBack(null);
+    hideIndicator();
 }
+var dkb = undefined;
 function getData(event) {
     if (document.getElementById("pin").value != '') {
         showError('');
+        showIndicator();
         
-        new DKBEngine(document.getElementById("login").value, document.getElementById("pin").value, onTransactionCompleted, showError);
+        var login = document.getElementById("login").value;
+        
+        if (login != '' && login != 'Kontonummer') {
+            widget.setPreferenceForKey(login, widget.identifier + "-loginName");
+        }
+        
+        dkb = new DKBEngine(login, document.getElementById("pin").value, onTransactionCompleted, showError);
         document.getElementById("pin").value = '';
     }
 }
@@ -216,7 +187,7 @@ if (window.widget) {
 }
 
 
-function X(event)
+function onEnter(event)
 {
     // Insert Code Here
 }

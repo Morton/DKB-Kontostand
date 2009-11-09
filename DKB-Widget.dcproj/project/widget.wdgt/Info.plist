@@ -9,22 +9,22 @@
 	<key>CFBundleDisplayName</key>
 	<string>Untitled</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.morton.widget.Untitled</string>
+	<string>de.technopolis.widgets.DKBKontostand</string>
 	<key>CFBundleName</key>
 	<string>Untitled</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.11</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>0.11</string>
 	<key>CloseBoxInsetX</key>
 	<integer>15</integer>
 	<key>CloseBoxInsetY</key>
 	<integer>15</integer>
 	<key>Height</key>
-	<integer>228</integer>
+	<integer>160</integer>
 	<key>MainHTML</key>
 	<string>main.html</string>
 	<key>Width</key>
-	<integer>272</integer>
+	<integer>264</integer>
 </dict>
 </plist>
